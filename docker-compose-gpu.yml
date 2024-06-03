@@ -1,0 +1,25 @@
+services:
+  pdf-document-layout-analysis-text-extraction:
+    extends:
+      file: docker-compose.yml
+      service: pdf-document-layout-analysis-text-extraction
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]
+    networks:
+      - pdf-text-extraction-network
+
+  pdf-text-extraction:
+    extends:
+      file: docker-compose.yml
+      service: pdf-text-extraction
+    networks:
+      - pdf-text-extraction-network
+
+networks:
+  pdf-text-extraction-network:
+    driver: bridge
