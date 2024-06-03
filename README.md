@@ -13,7 +13,11 @@ You can check the pdf-document-layout-analysis service from here:
 ## Quick Start
 Start the service:
 
+    # With GPU support
     make start
+    
+    # Without GPU support [if you do not have a GPU on your system]
+    make start_no_gpu
 
 Get the segments from a PDF:
 
