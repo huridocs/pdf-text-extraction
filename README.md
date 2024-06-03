@@ -1,4 +1,4 @@
-<h3 align="center">PDF Table of Contents Extraction</h3>
+<h3 align="center">PDF Text Extraction</h3>
 <p align="center">A Docker-powered service for extracting text from PDF documents</p>
 
 ---
