@@ -33,6 +33,6 @@ def extract_text(segment_boxes: list[dict], types: str):
     else:
         token_types: list[TokenType] = [TokenType.from_text(t) for t in types.split()]
     service_logger.info(f"Extracted types: {[t.name for t in token_types]}")
-    text = " ".join([segment_box["text"] for segment_box in segment_boxes if
+    text = "\n".join([segment_box["text"] for segment_box in segment_boxes if
                      TokenType.from_text(segment_box["type"]) in token_types])
     return text
