@@ -7,22 +7,3 @@ services:
     restart: unless-stopped
     ports:
       - "5060:5060"
-    networks:
-      - pdf-text-extraction-network
-  pdf-text-extraction:
-    container_name: pdf-text-extraction
-    entrypoint: [ "gunicorn", "-k", "uvicorn.workers.UvicornWorker", "--chdir", "./src", "app:app", "--bind", "0.0.0.0:5080", "--timeout", "10000"]
-    init: true
-    restart: unless-stopped
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "5080:5080"
-    depends_on:
-      - pdf-document-layout-analysis-text-extraction
-    networks:
-      - pdf-text-extraction-network
-networks:
-  pdf-text-extraction-network:
-    driver: bridge
